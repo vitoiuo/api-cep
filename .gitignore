@@ -130,3 +130,9 @@ dmypy.json
 
 # Dockerized bank data
 .postgres_data/
+
+# Migrations
+migrations/
+
+# Vs Code
+vscode/
