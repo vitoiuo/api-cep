@@ -18,5 +18,5 @@ from .views import ola_mundo
 from django.urls import path
 
 urlpatterns = [
-    path('', ola_mundo)
+    path('cep/<cep> ', ola_mundo)
 ]

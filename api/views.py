@@ -1,8 +1,10 @@
 from django.shortcuts import render
-from django.http import HttpResponse, JsonResponse
+from django.http import JsonResponse
+from . import models
 
 
 # Create your views here.
 
-def ola_mundo(request):
-    return HttpResponse('ola mundo', content_type='text/plain')
+def ola_mundo(request, cep):
+    cep = 1 
+    return JsonResponse(request, cep)
