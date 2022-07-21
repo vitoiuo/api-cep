@@ -19,6 +19,11 @@ def api_consulta_cep(request, cep):
             'complemento': endereco[0].complemento,
             'bairro': endereco[0].bairro,
             'cidade_id': endereco[0].cidade_id,
+            'cidade': {
+                'id': endereco[0].cidade.id,
+                'nome': endereco[0].cidade.nome,
+            }
+
         }
 
     return JsonResponse(resposta_consulta)
