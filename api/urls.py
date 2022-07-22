@@ -19,5 +19,5 @@ from . import views
 
 
 urlpatterns = [
-    path('cep/<cep>/', views.api_cep)
+    path('cep/<cep>/', views.api_cep, name='api.cep')
 ]

@@ -18,7 +18,8 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', include('api.urls'))
+    path('api/', include('api.urls')),
+    path('consultar-cep/', include('consultor_cep.urls'))
     # todo:
     # redirect to the app interface
 ]
