@@ -1,11 +1,11 @@
 from django.http import JsonResponse
-from .models import Estado, Cidade, Cep
+from .models import Cep
 
 
 # Create your views here.
 
 def api_consulta_cep(request, cep):
-    endereco = Cep.objects.filter(cep=cep)
+    endereco = Cep.objects.get(cep=cep)
 
     if not endereco:
         resposta_consulta = {
@@ -14,16 +14,19 @@ def api_consulta_cep(request, cep):
 
     if endereco:
         resposta_consulta = {
-            'cep': endereco[0].cep,
-            'logradouro': endereco[0].logradouro,
-            'complemento': endereco[0].complemento,
-            'bairro': endereco[0].bairro,
-            'cidade_id': endereco[0].cidade_id,
+            'cep': endereco.cep,
+            'logradouro': endereco.logradouro,
+            'complemento': endereco.complemento,
+            'bairro': endereco.bairro,
             'cidade': {
-                'id': endereco[0].cidade.id,
-                'nome': endereco[0].cidade.nome,
+                'id': endereco.cidade.id,
+                'nome': endereco.cidade.nome,
+                'estado': {
+                    'id': endereco.cidade.estado.id,
+                    'nome': endereco.cidade.estado.nome,
+                    'sigla': endereco.cidade.estado.sigla,
+                }
             }
-
         }
 
     return JsonResponse(resposta_consulta)
