@@ -15,13 +15,12 @@ def api_consulta_cep(request, cep):
             'complemento': endereco.complemento,
             'bairro': endereco.bairro,
             'cidade': endereco.cidade.nome,
-            'estado': endereco.cidade.estado.nome,
-            'estado_sigla': endereco.cidade.estado.sigla,
+            'estado': f'{endereco.cidade.estado.nome}, {endereco.cidade.estado.sigla}',
         }
 
-    except:
+    except Cep.DoesNotExist:
         resposta_consulta = {
-            'cep': 'cep inválido'
+            'cep': 'cep inválido',
         }
 
     return JsonResponse(resposta_consulta)
