@@ -1,32 +1,27 @@
 from django.http import JsonResponse
 from .models import Cep
+from django.db.models import Model
 
 
 # Create your views here.
 
 def api_consulta_cep(request, cep):
-    endereco = Cep.objects.get(cep=cep)
+    try:
+        endereco = Cep.objects.get(cep=cep)
 
-    if not endereco:
-        resposta_consulta = {
-            'cep': 'cep inválido'
-        }
-
-    if endereco:
         resposta_consulta = {
             'cep': endereco.cep,
             'logradouro': endereco.logradouro,
             'complemento': endereco.complemento,
             'bairro': endereco.bairro,
-            'cidade': {
-                'id': endereco.cidade.id,
-                'nome': endereco.cidade.nome,
-                'estado': {
-                    'id': endereco.cidade.estado.id,
-                    'nome': endereco.cidade.estado.nome,
-                    'sigla': endereco.cidade.estado.sigla,
-                }
-            }
+            'cidade': endereco.cidade.nome,
+            'estado': endereco.cidade.estado.nome,
+            'estado_sigla': endereco.cidade.estado.sigla,
+        }
+
+    except:
+        resposta_consulta = {
+            'cep': 'cep inválido'
         }
 
     return JsonResponse(resposta_consulta)
