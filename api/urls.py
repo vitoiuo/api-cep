@@ -14,9 +14,10 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 
-from .views import ola_mundo
 from django.urls import path
+from . import views
+
 
 urlpatterns = [
-    path('cep/<cep> ', ola_mundo)
+    path('cep/<cep>/', views.api_cep)
 ]
