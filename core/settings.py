@@ -27,7 +27,7 @@ SECRET_KEY = os.environ.get('SECRET', 'insert-your-secret-key-here')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DEBUG', 'insert-true-or-false-here') == 'True'
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -42,11 +42,15 @@ DJANGO_APPS = [
 
 LOCAL_APPS = [
     'api',
+    'consulta',
 ]
 
 THIRD_PARTY_APPS = [
-    'django_extensions'
+    'django_extensions',
 ]
+
+if DEBUG is True:
+    THIRD_PARTY_APPS += ['debug_toolbar']
 
 INSTALLED_APPS = DJANGO_APPS + LOCAL_APPS + THIRD_PARTY_APPS
 

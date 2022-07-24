@@ -1,9 +1,9 @@
-from django.http import JsonResponse
+from django.http import JsonResponse, Http404, HttpResponseBadRequest
 from .models import Cep
-from django.db.models import Model
 
 
 # Create your views here.
+
 
 def api_consulta_cep(request, cep):
     try:
@@ -15,12 +15,11 @@ def api_consulta_cep(request, cep):
             'complemento': endereco.complemento,
             'bairro': endereco.bairro,
             'cidade': endereco.cidade.nome,
-            'estado': f'{endereco.cidade.estado.nome}, {endereco.cidade.estado.sigla}',
+            'estado': endereco.cidade.estado.nome,
+            'sigla': endereco.cidade.estado.sigla,
         }
 
     except Cep.DoesNotExist:
-        resposta_consulta = {
-            'cep': 'cep inválido',
-        }
+        raise Http404
 
     return JsonResponse(resposta_consulta)
