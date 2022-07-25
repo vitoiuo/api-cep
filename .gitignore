@@ -128,11 +128,5 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
-# Dockerized bank data
+# dockerized bank data
 .postgres_data/
-
-# Migrations
-migrations/
-
-# Vs Code
-vscode/
