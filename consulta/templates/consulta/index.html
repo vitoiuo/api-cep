@@ -1,3 +1,4 @@
+{% load static %}
 {% load sass_tags %}
 <!doctype html>
 <html lang="en">
@@ -10,11 +11,12 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;500;700&family=Roboto:wght@300;400;500;700&display=swap"
           rel="stylesheet">
-    <link rel="stylesheet" href="{% sass_src 'consulta/custom/main.scss' %}">
+    <link rel="stylesheet" href="{% sass_src 'consulta/custom/scss/main.scss' %}">
     <title>Document</title>
 </head>
 <body>
-<h1>ola mundo</h1>
-<p>asidjfiasdufjsuia</p>
+<div class="container">teste</div>
 </body>
+<script src="{% static 'consulta/bootstrap' %}"></script>
+<script src="{% static 'consulta/custom/js/fetchApi.js' %}"></script>
 </html>
