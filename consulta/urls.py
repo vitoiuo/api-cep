@@ -4,5 +4,5 @@ from . import views
 app_name = 'consulta'
 
 urlpatterns = [
-    path('cep/', views.consulta)
+    path('cep/<cep>', views.consulta_por_cep),
 ]
