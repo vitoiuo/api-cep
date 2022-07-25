@@ -1,4 +1,4 @@
-from django.http import JsonResponse, Http404, HttpResponseBadRequest
+from django.http import JsonResponse, Http404
 from .models import Cep
 
 
