@@ -31,3 +31,7 @@ $font-family-monospace: 'Roboto Mono', monospace !default;
 @import "../../bootstrap/scss/utilities/api";
 
 // 8. Add additional custom code here
+
+.page-wrapper {
+  height: 100vh;
+}
