@@ -1,0 +1,86 @@
+body {
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  list-style: none;
+  font-family: 'Roboto', sans-serif;;
+}
+.container{
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 4rem;
+}
+.block {
+  display: flex;
+  flex-flow: column nowrap;
+  padding: 2rem;
+  gap: 2rem;
+  height: 100rem;
+}
+nav{
+  background-color: #FEA82F;
+  padding: 0.4rem 0.8rem;
+  text-align: center;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2.4rem;
+}
+input {
+  width: 64%;
+  padding: 0.4rem 0.8rem;
+  border: 1px solid gray;
+  border-radius: 5px;
+}
+button {
+  width: 40%;
+  padding: 1rem;
+  border: 1px solid transparent;
+  border-radius: 10px;
+}
+p {
+  text-transform: capitalize;
+}
+.texto{
+  display: none;
+}
+.texto.ativar{
+  display: block;
+}
+.nav-transparent{
+  background-color: transparent;
+}
+.circle{
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  background-color: gray;
+  position: absolute;
+}
+.tag{
+  letter-spacing: 1px;
+  display: block;
+  text-transform: capitalize;
+  color: #fff;
+  background-color: blue;
+  padding: 0.8rem;
+  font-weight: 800;
+}
+.back{
+  text-align: center;
+  background-color: #FEA82F;
+  padding: 0.8rem;
+  width: 30%;
+  border-radius: 10px;
+}
+.back a{
+  color: #333;
+  text-decoration: none;
+  font-weight: bold;
+}
+p{
+  padding: 0.8rem;
+}

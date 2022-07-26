@@ -1,21 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Aaaa</title>
-</head>
-
-<body>
-    <form action="{% url 'consultar.cep' %}" method="POST">
-        {% csrf_token %}
-        <label for="cep"></label>
-        <input type="text" name='cep'>
-        <button type="submmit">Buscar cep</button>
-    </form>
-
-</body>
-
-</html>
+{% extends 'consultor-cep/base.html' %}
+{% block content %}
+<form action="{% url 'consultar.cep' %}" method="POST">
+    {% csrf_token %}
+    <input type="text" name='cep' placeholder="Digite o cep para pesquisa">
+    <button type="submmit">Buscar cep</button>
+</form>
+{% endblock %}

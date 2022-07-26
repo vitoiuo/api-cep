@@ -5,9 +5,10 @@ import json
 def consultar_cep(request):
     if request.method=='POST':
         cep = request.POST.get('cep')
+        cep = cep.replace('-','')
 
-        a = 'http://127.0.0.1:8000/api/cep/' + cep
-        with urllib.request.urlopen(a) as url:
+        api_url = 'http://127.0.0.1:8000/api/cep/' + cep
+        with urllib.request.urlopen(api_url) as url:
             dict_cep = json.loads(url.read().decode())
             context = {
                 'response':dict_cep
