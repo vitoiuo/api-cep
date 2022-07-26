@@ -12,35 +12,48 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;500;700&family=Roboto:wght@300;400;500;700&display=swap"
           rel="stylesheet">
     <link rel="stylesheet" href="{% sass_src 'consulta/custom/scss/main.scss' %}">
-    <title>consulta por {{ tipo_de_consulta }}</title>
+    <title>consulta por cep</title>
 </head>
 <body>
-<div>
-    <form method="get">
+<div class="page-wrapper">
+    <form class="coluna" method="get">
         <div>
-            <label>insira um {{ tipo_de_consulta }}</label>
-            <input>
+            <label class="celula">insira um cep</label>
+            <input class="celula" value="{{ request.GET.cep }}" name="cep" type="text"
+                   placeholder="digite aqui seu cep">
         </div>
-        <button>buscar</button>
+        <button class="celula" type="submit">buscar</button>
     </form>
-    <div>
-        <div>
-            <div>cep</div>
-            <div>logradouro</div>
-            <div>complemento</div>
-            <div>bairro</div>
-            <div>cidade</div>
-            <div>estado</div>
-        </div>
-        <div>
-            <div>{{ cep }}</div>
-            <div>{{ logradouro }}</div>
-            <div>{{ complemento }}</div>
-            <div>{{ bairro }}</div>
-            <div>{{ cidade }}</div>
-            <div>{{ estado }}</div>
+    <div class="linha-wrapper">
+        <div class="linha">
+            <div class="coluna">
+                <div class="celula">cep</div>
+                <div class="celula">{{ cep }}</div>
+            </div>
+            <div class="coluna">
+                <div class="celula">logradouro</div>
+                <div class="celula">{{ logradouro }}</div>
+            </div>
+            <div class="coluna">
+                <div class="celula">complemento</div>
+                <div class="celula">{{ complemento }}</div>
+            </div>
+            <div class="coluna">
+                <div class="celula">bairro</div>
+                <div class="celula">{{ bairro }}</div>
+            </div>
+            <div class="coluna">
+                <div class="celula">cidade</div>
+                <div class="celula">{{ cidade }}</div>
+            </div>
+            <div class="coluna">
+                <div class="celula">estado</div>
+                <div class="celula">{{ estado }}</div>
+            </div>
         </div>
     </div>
 </div>
 </body>
+<!-- cep, cidade, estado are obligatory fields-->
+<!-- logradouro, complemento, bairro can be null -->
 </html>

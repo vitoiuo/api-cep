@@ -11,19 +11,15 @@ def index(request):
 def consulta_por_cep(request):
     cep = request.GET.get('cep')
 
-    if cep is None or len(cep) != 8:
-        return redirect('consulta_por_cep')
-
     endereco = Cep.objects.get(cep=cep)
 
-    context = {
-        'tipo_de_consulta': 'cep',
+    resposta_consulta = {
         'cep': endereco.cep,
         'logradouro': endereco.logradouro,
         'complemento': endereco.complemento,
         'bairro': endereco.bairro,
         'cidade': endereco.cidade.nome,
-        'estado': f'{endereco.cidade.estado.nome}, {endereco.cidade.estado.sigla}',
+        'estado': endereco.cidade.estado.nome,
     }
 
-    return render(request, 'consulta/consulta_por_cep.html', context)
+    return render(request, 'consulta/consulta_por_cep.html', resposta_consulta)
