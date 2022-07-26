@@ -50,9 +50,6 @@ THIRD_PARTY_APPS = [
     'sass_processor',
 ]
 
-if DEBUG is True:
-    THIRD_PARTY_APPS += ['debug_toolbar', ]
-
 INSTALLED_APPS = DJANGO_APPS + LOCAL_APPS + THIRD_PARTY_APPS
 
 MIDDLEWARE = [
@@ -64,9 +61,6 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
-
-if DEBUG:
-    MIDDLEWARE += ["debug_toolbar.middleware.DebugToolbarMiddleware", ]
 
 ROOT_URLCONF = 'core.urls'
 

@@ -13,13 +13,23 @@ def consulta_por_cep(request):
 
     endereco = Cep.objects.get(cep=cep)
 
-    resposta_consulta = {
-        'cep': endereco.cep,
-        'logradouro': endereco.logradouro,
-        'complemento': endereco.complemento,
-        'bairro': endereco.bairro,
-        'cidade': endereco.cidade.nome,
-        'estado': endereco.cidade.estado.nome,
-    }
+    if endereco.logradouro and endereco.complemento is not None:
+        resposta_consulta = {
+            'cep': cep,
+            'logradouro': f'{endereco.logradouro} {endereco.complemento}',
+            'bairro': endereco.bairro,
+            'cidade': endereco.cidade.nome,
+            'estado': f'{endereco.cidade.estado.nome} ({endereco.cidade.estado.sigla})',
+        }
 
-    return render(request, 'consulta/consulta_por_cep.html', resposta_consulta)
+    else:
+        resposta_consulta = {
+            'cep': cep,
+            'logradouro': endereco.logradouro,
+            'complemento': endereco.complemento,
+            'bairro': endereco.bairro,
+            'cidade': endereco.cidade.nome,
+            'estado': f'{endereco.cidade.estado.nome} ({endereco.cidade.estado.sigla})',
+        }
+
+    return render(request, 'consulta/consulta_por_cep.html', {'resposta_consulta': resposta_consulta})
