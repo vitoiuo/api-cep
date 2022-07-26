@@ -19,7 +19,11 @@ def api_consulta_cep(request, cep):
             'sigla': endereco.cidade.estado.sigla,
         }
 
-    except Cep.DoesNotExist:
-        raise Http404
+        return JsonResponse(resposta_consulta, status=200)
 
-    return JsonResponse(resposta_consulta)
+    except Cep.DoesNotExist:
+        resposta_consulta = {
+            'cep': 'inválido',
+        }
+
+        return JsonResponse(resposta_consulta, status=404)
