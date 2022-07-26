@@ -15,9 +15,11 @@
     <title>Document</title>
 </head>
 <body>
-<form action="">
-    <label>insira um cep</label>
-    <input placeholder="digite aqui seu cep">
+<form>
+    <div class="mb-3">
+        <label class="form-label">insira um cep</label>
+        <input class="form-control" placeholder="digite aqui seu cep">
+    </div>
 </form>
 {% for chave, valor in resposta_consulta.items %}
     {% if valor != None %}
