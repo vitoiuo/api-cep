@@ -14,20 +14,25 @@
     <title>consulta por cep</title>
 </head>
 <body>
-<div class="page-wrapper">
-    <h1>consulta por cep</h1>
-    <form method="get">
-        <label>insira um cep</label>
-        <input name="cep" value="{{ request.GET.cep }}" placeholder="digite aqui seu cep">
-    </form>
-    <button type="submit">buscar</button>
-    {% for chave, valor in resposta_consulta.items %}
-        {% if valor != None %}
-            <div>{{ chave }}</div>
-            <div>{{ valor }}</div>
-        {% endif %}
-    {% endfor %}
-</div>
+<main>
+    <div class="consult-wrapper">
+        <h1>consulta por cep</h1>
+        <form class="form-wrapper" method="get">
+            <label>insira um cep</label>
+            <input class="form-input" name="cep" value="{{ request.GET.cep }}" type="number"
+                   placeholder="digite aqui seu cep">
+            <button class="form-button" type="submit">buscar</button>
+        </form>
+    </div>
+    <div class="result-wrapper">
+        {% for chave, valor in resposta_consulta.items %}
+            {% if valor != None %}
+                <div>{{ chave }}</div>
+                <div>{{ valor }}</div>
+            {% endif %}
+        {% endfor %}
+    </div>
+</main>
 </body>
 
 </html>
