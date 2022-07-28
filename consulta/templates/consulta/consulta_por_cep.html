@@ -18,7 +18,7 @@
     <h1>consulta por cep</h1>
     <form method="get">
         <label>insira um cep</label>
-        <input type="text" name="cep" value="{{ request.GET.cep }}" placeholder="digite aqui seu cep">
+        <input name="cep" value="{{ request.GET.cep }}" placeholder="digite aqui seu cep">
     </form>
     <button type="submit">buscar</button>
     {% for chave, valor in resposta_consulta.items %}
