@@ -1,6 +1,13 @@
 @import 'reset.css';
 
-* {
-    font-family: 'Roboto', sans-serif;
+:root {
+    --font-family-arial: 'Roboto', sans-serif;
+    --color-blue: #0d6efd;
+    --color-red: #dc3545;
+    --color-green: #198754;
+    --color-yellow: #ffc107;
 }
 
+* {
+    font-family: var(--font-family-arial);
+}
