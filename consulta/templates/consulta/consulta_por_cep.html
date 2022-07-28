@@ -27,8 +27,8 @@
     <div class="result-wrapper">
         {% for chave, valor in resposta_consulta.items %}
             {% if valor != None %}
-                <div>{{ chave }}</div>
-                <div>{{ valor }}</div>
+                <div class="result-cell">{{ chave }}</div>
+                <div class="result-cell">{{ valor }}</div>
             {% endif %}
         {% endfor %}
     </div>

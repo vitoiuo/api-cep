@@ -32,16 +32,23 @@ main {
 .consult-wrapper {
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 .form-wrapper {
-    display: flex;
+    display: grid;
     flex-direction: column;
+    align-items: center;
 }
 
 .result-wrapper {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    border: 1px solid black;
+
+}
+
+.result-cell {
+    padding: 0.375rem 0.75rem;
 }
 
 .form-button {
