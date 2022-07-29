@@ -16,19 +16,21 @@
 <body>
 <main>
     <div class="consult-wrapper">
-        <h1>consulta por cep</h1>
+        <h1 class="mHalf-bot m2-top">consulta por cep</h1>
         <form class="form-wrapper" method="get">
-            <label>insira um cep</label>
+            <label class="mHalf-bot">insira um cep</label>
             <input class="form-input" name="cep" value="{{ request.GET.cep }}" type="number"
                    placeholder="digite aqui seu cep">
-            <button class="form-button" type="submit">buscar</button>
+            <button class="m1-top m2-bot form-button" type="submit">buscar</button>
         </form>
     </div>
     <div class="result-wrapper">
-        {% for chave, valor in resposta_consulta.items %}
-            {% if valor != None %}
-                <div class="result-cell">{{ chave }}</div>
-                <div class="result-cell">{{ valor }}</div>
+        {% for key, value in resposta_consulta.items %}
+            {% if value != None %}
+                <div class="result-row mHalf-bot">
+                    <div class="result-key">{{ key }}:</div>
+                    <div class="result-value">{{ value }}</div>
+                </div>
             {% endif %}
         {% endfor %}
     </div>

@@ -17,9 +17,16 @@ def consulta_por_cep(request):
         try:
             endereco = Cep.objects.get(cep=cep)
 
+            formatted_cep = ''
+
+            for i in cep:
+                formatted_cep += i
+                if len(formatted_cep) == 5:
+                    formatted_cep += '-'
+
             if endereco.logradouro and endereco.complemento is not None:
                 resposta_consulta = {
-                    'cep': cep,
+                    'cep': formatted_cep,
                     'logradouro': f'{endereco.logradouro} {endereco.complemento}',
                     'bairro': endereco.bairro,
                     'cidade': endereco.cidade.nome,
@@ -28,7 +35,7 @@ def consulta_por_cep(request):
 
             else:
                 resposta_consulta = {
-                    'cep': cep,
+                    'cep': formatted_cep,
                     'logradouro': endereco.logradouro,
                     'complemento': endereco.complemento,
                     'bairro': endereco.bairro,
