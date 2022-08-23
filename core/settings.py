@@ -43,6 +43,7 @@ DJANGO_APPS = [
 
 LOCAL_APPS = [
     'api',
+    'consultor_ceps'
 ]
 
 THIRD_PARTY_APPS = [

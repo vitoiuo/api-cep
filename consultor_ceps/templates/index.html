@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id='cep' onfocusout='chamaApiDeCep()'>
+    <input type="text" id='logradouro'>
+    <input type="text" id='bairro'>
+    <input type="text" id='complemento'>
+    <input type="text" id='cidade'>
+    <input type="text" id='estado'>
+    <script>
+        function chamaApiDeCep(){
+            const elCep = document.getElementById('cep')
+            const elCidade = document.getElementById('cidade')
+            const elLogradouro = document.getElementById('logradouro')
+            const elBairro = document.getElementById('bairro')
+            const elComplemento = document.getElementById('complemento')
+            const elEstado = document.getElementById('estado')
+
+            fetch(`/api/cep/${elCep.value}`)
+            .then((response) => {
+                if(response.status !== 200){
+                    throw new Error('Cep inválido', {cause:response})
+                }
+                return response.json()
+
+            })
+            .then((response) => {
+                elLogradouro.value = response.logradouro
+                elBairro.value = response.bairro
+                elComplemento.value = response.complemento
+                elCidade.value = response.cidade
+                elEstado.value = response.estado + ' - ' + response.sigla
+            })
+            .catch((error) => window.alert(error))
+        }
+    </script>
+</body>
+</html>
