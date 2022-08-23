@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 import os
 from pathlib import Path
+
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -42,7 +43,6 @@ DJANGO_APPS = [
 
 LOCAL_APPS = [
     'api',
-    'consultor_cep',
 ]
 
 THIRD_PARTY_APPS = [

@@ -15,8 +15,8 @@ Including another URLconf
 """
 
 from django.urls import path
-from . import views
 
+from . import views
 
 urlpatterns = [
     path('cep/<cep>/', views.api_cep, name='api.cep')

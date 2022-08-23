@@ -1,8 +1,0 @@
-{% extends 'consultor-cep/base.html' %}
-{% block content %}
-<form action="{% url 'consultar.cep' %}" method="POST">
-    {% csrf_token %}
-    <input type="text" name='cep' placeholder="Digite o cep para pesquisa">
-    <button type="submmit">Buscar cep</button>
-</form>
-{% endblock %}

@@ -1,15 +1,16 @@
-from textwrap import indent
-from django.shortcuts import render
-from django.http import HttpResponse
-from .models import Cep
-from django.core.exceptions import ObjectDoesNotExist
 import json
+from textwrap import indent
+
+from django.core.exceptions import ObjectDoesNotExist
+from django.http import HttpResponse
+
+from .models import Cep
 
 # Create your views here.
 
 def api_cep(request, cep):
     try:
-        data = Cep.objects.values(
+        data = Cep.objects.select_related('cidade').values(
             'logradouro',
             'bairro',
             'complemento',
