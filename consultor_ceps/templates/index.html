@@ -7,12 +7,13 @@
     <title>Document</title>
 </head>
 <body>
-    <input type="text" id='cep' onfocusout='chamaApiDeCep()'>
+    <input type="text" id='cep'>
     <input type="text" id='logradouro'>
     <input type="text" id='bairro'>
     <input type="text" id='complemento'>
     <input type="text" id='cidade'>
     <input type="text" id='estado'>
+    <button onclick='chamaApiDeCep()'>Buscar</button>
     <script>
         function chamaApiDeCep(){
             const elCep = document.getElementById('cep')
@@ -37,7 +38,14 @@
                 elCidade.value = response.cidade
                 elEstado.value = response.estado + ' - ' + response.sigla
             })
-            .catch((error) => window.alert(error))
+            .catch((error) => {
+                elLogradouro.value =null
+                elBairro.value = null
+                elComplemento.value = null
+                elCidade.value = null
+                elEstado.value = null
+                return window.alert(error)
+            })
         }
     </script>
 </body>
